@@ -1,0 +1,220 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ally Auto Loan Script - Theo Underhill (Transfer)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .ally-purple { color: #500078; }
+        .bg-ally-purple { background-color: #500078; }
+        .border-ally-purple { border-color: #500078; }
+        
+        .script-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .script-card:hover {
+            transform: translateX(5px);
+            border-left-color: #500078;
+        }
+
+        .status-pill {
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #500078;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Header Section -->
+        <header class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-ally-purple rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    a
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800">Ally Auto Finance</h1>
+                    <p class="text-sm text-gray-500">Loan Expert: <span class="font-medium text-purple-700">Spencer</span></p>
+                </div>
+            </div>
+            
+            <div class="text-right">
+                <div class="text-sm text-gray-400 mb-1">Transfer from Checking Dept</div>
+                <div class="flex items-center gap-2">
+                    <span class="font-semibold text-gray-800 text-lg">Theo Underhill</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress Tracker -->
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill" style="width: 20%;"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Sidebar Navigation -->
+            <nav class="space-y-2">
+                <button onclick="showStep(1, 20)" class="w-full text-left p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all font-medium text-gray-600 focus:text-purple-700 focus:bg-purple-50 border border-transparent active-step" id="btn-1">
+                    1. The Transition
+                </button>
+                <button onclick="showStep(2, 40)" class="w-full text-left p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all font-medium text-gray-600 focus:text-purple-700 focus:bg-purple-50 border border-transparent" id="btn-2">
+                    2. Discovery & Needs
+                </button>
+                <button onclick="showStep(3, 60)" class="w-full text-left p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all font-medium text-gray-600 focus:text-purple-700 focus:bg-purple-50 border border-transparent" id="btn-3">
+                    3. Financing Options
+                </button>
+                <button onclick="showStep(4, 80)" class="w-full text-left p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all font-medium text-gray-600 focus:text-purple-700 focus:bg-purple-50 border border-transparent" id="btn-4">
+                    4. Clarification
+                </button>
+                <button onclick="showStep(5, 100)" class="w-full text-left p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all font-medium text-gray-600 focus:text-purple-700 focus:bg-purple-50 border border-transparent" id="btn-5">
+                    5. Next Steps
+                </button>
+
+                <div class="mt-8 p-4 bg-purple-50 rounded-xl border border-purple-100">
+                    <h3 class="text-xs font-bold text-purple-800 uppercase tracking-wider mb-2">Spencer's Pro-Tips</h3>
+                    <ul class="text-xs space-y-2 text-purple-700">
+                        <li>• Acknowledge the transfer department</li>
+                        <li>• Allow Theo to recap his goal</li>
+                        <li>• Focus on the Ally "Auto" difference</li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="md:col-span-2 space-y-6">
+                
+                <!-- Step 1: The Transition -->
+                <div id="step-1" class="step-content">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card mb-4">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">Opening Greeting</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed italic">
+                            "Hi <strong>Theo</strong>, I'm <strong>Spencer</strong> with the Auto Finance team. I see you were just working with our Checking department and they've transferred you over to me to talk about a vehicle loan. How are you doing today?"
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">Bridging Departments</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "Since I'm just jumping in here, I'd love to hear from you directly—what kind of vehicle are you looking at, and how can I best help you get that process moving forward today?"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Discovery & Needs -->
+                <div id="step-2" class="step-content hidden">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card mb-4">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">Needs Analysis</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed italic">
+                            "That sounds like a great choice, Theo. To make sure I’m looking at the right terms for you, are you aiming for a specific monthly payment, or is there a certain loan length you’re comfortable with?"
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">Ownership Context</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "And is this a vehicle you're planning to keep for the long haul, or do you typically like to upgrade every few years? That helps me narrow down the best Ally products for your situation."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Financing Options -->
+                <div id="step-3" class="step-content hidden">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card mb-4">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">The Ally Offer</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "Based on everything we've discussed, Theo, here is what I can do for you. We can offer a rate of [X.X%]. Since you're already an Ally customer on the checking side, we want to make this as seamless as possible. This is a simple-interest loan with no hidden fees."
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card">
+                        <span class="text-xs font-bold text-ally-purple uppercase tracking-widest">Integrity Check</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "At Ally, we believe in 'Doing It Right,' so the numbers you see on your screen right now are exactly what you'll see in the final contract."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Clarification -->
+                <div id="step-4" class="step-content hidden">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card mb-4">
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-widest">Handling Questions</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed italic">
+                            "That's a valid question, Theo. One of the perks of financing where you bank is that you can manage your auto loan and your checking account all in one dashboard. It really simplifies the monthly routine."
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card">
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-widest">Re-establishing Value</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "My goal is to make sure this is the easiest part of your car-buying experience. Does this plan feel like it covers all your bases?"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5: Next Steps -->
+                <div id="step-5" class="step-content hidden">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card mb-4">
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-widest">The Hand-off to Digital</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed italic">
+                            "Perfect. Theo, I’m sending the digital signature link to your email on file right now. Once you finish that, I'll update the system so the dealership knows your financing is locked in."
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 script-card">
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Conclusion</span>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            "Thanks for making the time to chat with me after your call with checking. We're glad to have you with us on the auto side now, too. Have a great time in the new car!"
+                        </p>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function showStep(stepNumber, progressPercent) {
+            const steps = document.querySelectorAll('.step-content');
+            steps.forEach(step => step.classList.add('hidden'));
+
+            document.getElementById('step-' + stepNumber).classList.remove('hidden');
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-purple-50', 'text-purple-700', 'border-purple-200');
+                btn.classList.add('text-gray-600', 'border-transparent');
+            });
+
+            const activeBtn = document.getElementById('btn-' + stepNumber);
+            activeBtn.classList.add('bg-purple-50', 'text-purple-700', 'border-purple-200');
+            activeBtn.classList.remove('text-gray-600', 'border-transparent');
+        }
+
+        window.onload = () => showStep(1, 20);
+    </script>
+</body>
+</html>
